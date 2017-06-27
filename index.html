@@ -4,16 +4,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <style>
-            #chart {
-              height: 10px;
-              width: 10px;
-              background: lightblue;
-              float:left;
-              display: inline-block;
-            }
             div {
-              float:left;
-              display: inline-block;
+              height: 0px;
+              width: 0px;
+              background: cadetblue;
+              display: inline;
             }
         </style>
     </head>
@@ -25,7 +20,8 @@
                   .then((res) => {return res.json()})
                   .then((data) => {
                   console.log(data.num);
-                  $("#chart").append("<div></div>").css('height', data.num * 10);
+                  var height = data.num * 10;
+                  $("#chart").append("<div style='height:" + height  + "px;display: inline-block;width: 10px;'></div>");
                   loop();
                 }),1000);
             })();
