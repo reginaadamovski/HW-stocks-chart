@@ -15,7 +15,14 @@
     <body>
         <div id="chart"></div>
         <script>
+			var startDate = new Date();
+			var startTime = startDate.getTime();
             (function loop(){
+				var currentDate = new Date();
+				var currentTime = currentDate.getTime();
+				if (currentTime >= startTime + 101000 ){
+					return;
+				}
                 setTimeout(() => fetch('https://secure-castle-8699.herokuapp.com/')
                   .then((res) => {return res.json()})
                   .then((data) => {
